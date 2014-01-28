@@ -24,9 +24,11 @@ defined('_JEXEC') or die('Restricted access');
 			<?php endif; ?>
 		</td>
 		<td>
+			<a href="<?php echo JRoute::_('index.php?option=com_events&task=event.edit&id='.$item->id); ?>">
 			<?php echo $item->Bezeichnung; ?>
 			(<?php echo $item->Ort; ?>,
 			<?php echo $item->Datum_von->calendar('d.m.y'); ?><?php if($item->Datum_von->toUnix() != $item->Datum_bis->toUnix()) echo ' - '.$item->Datum_bis->calendar('d.m.y'); ?>)
+			</a>
 		</td>
 		<td style="text-align: right; padding-right: 20px;">
 			<?php if($item->NewsTelegramm): ?>
