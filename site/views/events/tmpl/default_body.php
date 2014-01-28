@@ -11,7 +11,7 @@
 defined('_JEXEC') or die('Restricted Access');
 ?>
 <table class="veranstaltung" width="100%" border="0" cellpadding="0" cellspacing="0">
-	<?php $aktuellerMonat = 0; ?>
+	<?php $aktuellerMonat = 0; $color = 0; ?>
 	<?php foreach($this->items as $i => $item): ?>
 		<?php $item->Datum_von = new JDate($item->Datum_von); ?>
 		<?php if($item->Datum_von->calendar('m') != $aktuellerMonat): ?>
@@ -23,11 +23,17 @@ defined('_JEXEC') or die('Restricted Access');
 			<tr><th colspan="4"><a name="<?php echo $aktuellerMonat; ?>" id="<?php echo JText::_('COM_EVENTS_EVENT_MONAT_'.$aktuellerMonat); ?>"></a><?php echo JText::_('COM_EVENTS_EVENT_MONAT_'.$aktuellerMonat); ?></th></tr>
 			<tr><td colspan="4">&nbsp;</td></tr>
 		<?php endif; ?>
-		<?php $item->Datum_bis = new JDate($item->Datum_bis); ?>
-		<tr class="row<?php echo $i % 2; ?>">
-			<td><?php echo $item->Datum_von->calendar('d.m.'); ?><?php if($item->Datum_von->toUnix() != $item->Datum_bis->toUnix()) echo ' - '.$item->Datum_bis->calendar('d.m.'); ?></td>
-			<td><?php echo $item->Bezeichnung; ?></td>
-			<td><?php echo $item->Ort; ?></td>
+		<?php $color++; $item->Datum_bis = new JDate($item->Datum_bis); ?>
+		<tr  <?php if($color%2==0){echo 'style="background-color:#E6E6E6"';} ?> class="row<?php echo $i % 2; ?>">
+			<td style="padding-right: 8px;" ><?php if($item->Datum_von->toUnix() != $item->Datum_bis->toUnix()){echo $item->Datum_von->calendar('d.').'-'.$item->Datum_bis->calendar('d.m');} else {echo $item->Datum_von->calendar('d.m');} ?></td>
+			<td style="max-width: 280px; padding-right: 5px;">
+				<?php foreach($item->links as $link): ?>
+					<?php if($link->Typ == 'Ausschreibung'): ?>
+						<a target="_blank" href="<?php echo $link->URL; ?>" mce_href="<?php echo $link->URL; ?>">
+					<?php endif; ?>
+				<?php endforeach; ?>
+				<?php echo $item->Bezeichnung; ?></a></td>
+			<td style="max-width: 90px;"><?php echo $item->Ort; ?></td>
 			<td style="text-align: right;">
 				<?php foreach($item->links as $link): ?>
 					<?php if($link->Typ == 'Fotogalerie'): ?>
