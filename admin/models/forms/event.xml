@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addrulepath="/administrator/components/com_events/models/rules">
+	<fieldset name="details">
+		<field name="id" type="hidden" />
+		<field name="Bezeichnung" type="text" label="COM_EVENTS_EVENT_FIELD_BEZEICHNUNG_LABEL" description="COM_EVENTS_EVENT_FIELD_BEZEICHNUNG_DESC" size="40" class="inputbox" required="true" default="" maxlength="255" />
+		<field name="Ort" type="text" label="COM_EVENTS_EVENT_FIELD_ORT_LABEL" description="COM_EVENTS_EVENT_FIELD_ORT_DESC" size="40" class="inputbox" required="true" default="" maxlength="255" />
+		<field name="Meisterschaft" type="meisterschaft" label="COM_EVENTS_EVENT_FIELD_MEISTERSCHAFT_LABEL" description="COM_EVENTS_EVENT_FIELD_MEISTERSCHAFT_DESC" size="40" class="inputbox" required="false" default="" validate="meisterschaft" />
+		<field name="Datum_von" type="calendar" label="COM_EVENTS_EVENT_FIELD_DATUM_VON_LABEL" description="COM_EVENTS_EVENT_FIELD_DATUM_VON_DESC" size="40" class="inputbox validate-date" required="true" default="" format="%d.%m.%Y" maxlength="10" />
+		<field name="Datum_bis" type="calendar" label="COM_EVENTS_EVENT_FIELD_DATUM_BIS_LABEL" description="COM_EVENTS_EVENT_FIELD_DATUM_BIS_DESC" size="40" class="inputbox validate-date" required="true" default="" format="%d.%m.%Y" maxlength="10" />
+		<field name="NewsTelegramm" type="checkbox" label="COM_EVENTS_EVENT_FIELD_NEWSTELEGRAMM_LABEL" description="COM_EVENTS_EVENT_FIELD_NEWSTELEGRAMM_DESC" size="40" class="inputbox" required="false" default="0" value="1" />
+		<field name="NewsTel_preDays" type="text" label="COM_EVENTS_EVENT_FIELD_NEWSTEL_PREDAYS_LABEL" description="COM_EVENTS_EVENT_FIELD_NEWSTEL_PREDAYS_DESC" size="40" class="inputbox validate-numeric" required="false" default="7" maxlength="3" validate="numeric" />
+		<field name="NewsTel_postDays" type="text" label="COM_EVENTS_EVENT_FIELD_NEWSTEL_POSTDAYS_LABEL" description="COM_EVENTS_EVENT_FIELD_NEWSTEL_POSTDAYS_DESC" size="40" class="inputbox validate-numeric" required="false" default="7" maxlength="3" validate="numeric" />
+	</fieldset>
+</form>

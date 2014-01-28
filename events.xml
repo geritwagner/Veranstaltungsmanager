@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.0.4" method="upgrade">
+	<name>com_events</name>
+	<author>Ivan de Castro</author>
+	<authorEmail>ivan@decastro.eu</authorEmail>
+	<authorUrl>http://www.decastro.eu</authorUrl>
+	<creationDate>November 2013</creationDate>
+	<version>2.0.4</version>
+	<description>COM_EVENTS_DESCRIPTION</description>
+	
+	<scriptfile>script.php</scriptfile>
+	
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	
+	<files folder="site">
+		<filename>events.php</filename>
+		<filename>controller.php</filename>
+		<folder>views</folder>
+		<folder>models</folder>
+		<folder>module</folder>
+	</files>
+	
+	<languages folder="site">
+		<language tag="de-DE">language/de-DE/de-DE.com_events.ini</language>
+	</languages>
+
+
+	<administration>
+		<menu img="components/com_events/images/events-16x16.png">com_events</menu>
+
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>events.php</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>images</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+
+		<languages folder="admin">
+			<language tag="de-DE">language/de-DE/de-DE.com_events.ini</language>
+			<language tag="de-DE">language/de-DE/de-DE.com_events.sys.ini</language>
+		</languages>
+	</administration>
+</extension>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.0.4" method="upgrade">
+    <name>Newstelegramm</name>
+    <author>Ivan de Castro</author>
+    <authorEmail>ivan@decastro.eu</authorEmail>
+	<authorUrl>http://www.decastro.eu</authorUrl>
+	<creationDate>November 2013</creationDate>
+    <version>2.0.4</version>
+    <description>MOD_EVENTS_DESCRIPTION</description>
+
+    <files>
+        <filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename module="mod_events">mod_events.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+    </files>
+
+    <languages folder="language">
+        <language tag="de-DE">de-DE/de-DE.mod_events.ini</language>
+    </languages>
+</extension>
