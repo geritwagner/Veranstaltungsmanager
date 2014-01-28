@@ -40,7 +40,7 @@ class modEventsHelper {
 		$query->from('#__events');
 		
 		// Aufsteigende Sortierung nach Datum
-		$query->order('Datum_von ASC');
+		$query->order('Datum_von DESC');
 		
 		// Nur Veranstaltungen mit aktiviertem Newstelegramm anzeigen
 		$query->where('Newstelegramm = 1');

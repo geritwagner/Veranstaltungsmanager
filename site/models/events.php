@@ -52,6 +52,12 @@ class EventsModelEvents extends JModelList {
 		return $query;
 	}
 
+	// Quick Fix: SQL-Limit (0,50) umgehen
+	protected function populateState()
+	{
+		$this->setState('list.limit', 2000);
+	}
+	
 	/**
 	*  Ermittelt zu einem Event alle vorliegenden Links
 	* 
