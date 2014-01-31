@@ -16,6 +16,9 @@ if(count((array)$events)) {
 		$event->Datum_von = new JDate($event->Datum_von);
 		$event->Datum_bis = new JDate($event->Datum_bis);
 		
+		$gestern = new Jdate();
+		$gestern->sub(new DateInterval('P1D'));
+		
 		echo '<p>';
 		echo $event->Ort;
 		echo ', ';
@@ -30,7 +33,7 @@ if(count((array)$events)) {
 		echo '<strong>'.$event->Bezeichnung.'</strong>';
 		
 		foreach($event->links as $link) {
-			if(!( ($link->Typ=="Ausschreibung" || $link->Typ=="Zeitplan" ||$link->Typ=="Teilnehmer" ) && $event->Datum_bis < new Jdate())){
+			if(!( ($link->Typ=="Ausschreibung" || $link->Typ=="Zeitplan" ||$link->Typ=="Teilnehmer" ) && $event->Datum_bis < $gestern)){
 			echo '<br />';
 			echo '<a target="_blank" href="'.$link->URL.'">'.$link->Bezeichnung.'</a>';
 			}
