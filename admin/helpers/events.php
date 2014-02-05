@@ -59,7 +59,7 @@ abstract class EventsHelper {
 	* @return array Ein Array mit den abgekürzten Meisterschaftsnamen als Value
 	*/
 	public static function getMeisterschaft() {
-		return array('BM', 'DM', 'EM', 'WM', 'OS');
+		return array('BM', 'SM', 'DM', 'EM', 'WM', 'OS');
 	}
 	
 	/**
