@@ -10,7 +10,7 @@ CREATE TABLE `#__events` (
   `NewsTelegramm` tinyint(1) NOT NULL,
   `NewsTel_preDays` int(11) NOT NULL,
   `NewsTel_postDays` int(11) NOT NULL,
-  `Meisterschaft` enum('BM','DM','EM','WM','OS') NOT NULL,
+  `Meisterschaft` enum('BM','DM','EM','WM','OS', 'SM') NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
