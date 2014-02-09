@@ -35,7 +35,10 @@ if(count((array)$events)) {
 		foreach($event->links as $link) {
 			if(!( ($link->Typ=="Ausschreibung" || $link->Typ=="Zeitplan" ||$link->Typ=="Teilnehmer" ) && $event->Datum_bis < $gestern)){
 			echo '<br />';
-			echo '<a target="_blank" href="'.$link->URL.'">'.$link->Bezeichnung.'</a>';
+			if(stripos($link->URL, JURI::base()) !== false)
+			{echo '<a target="_self" href="'.$link->URL.'">'.$link->Bezeichnung.'</a>';}
+			else {
+			echo '<a target="_blank" href="'.$link->URL.'">'.$link->Bezeichnung.'</a>';}
 			}
 		}
 		
