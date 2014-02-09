@@ -39,7 +39,7 @@ defined('_JEXEC') or die('Restricted Access');
 					<?php if($link->Typ == 'Fotogalerie'): ?>
 						<a target="_blank" href="<?php echo $link->URL; ?>" mce_href="<?php echo $link->URL; ?>"><img src="images/stories/navigation/archiv/fotos.gif" mce_src="/images/stories/navigation/archiv/fotos.gif" alt="Fotos" />
 					<?php elseif($link->Typ == 'Bericht'): ?>
-						<a target="_blank" href="<?php echo $link->URL; ?>" mce_href="<?php echo $link->URL; ?>"><img src="images/stories/navigation/archiv/berichte.gif" mce_src="/images/stories/navigation/archiv/berichte.gif" alt="Bericht" />
+						<a target="<?php if(stripos($link, JURI::base()) !== false){echo "_self";}else {echo "_blank";} ?>" href="<?php echo $link->URL; ?>" mce_href="<?php echo $link->URL; ?>"><img src="images/stories/navigation/archiv/berichte.gif" mce_src="/images/stories/navigation/archiv/berichte.gif" alt="Bericht" />
 					<?php elseif($link->Typ == 'Ergebnis'): ?>
 						<a target="_blank" href="<?php echo $link->URL; ?>" mce_href="<?php echo $link->URL; ?>"><img src="images/stories/navigation/archiv/ergebnisse.gif" mce_src="/images/stories/navigation/archiv/ergebnisse.gif" alt="Ergebnisliste" />
 					<?php endif; ?>
