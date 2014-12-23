@@ -56,11 +56,7 @@
 			<folder>sql</folder>
 			<folder>tables</folder>
 			<folder>views</folder>
+			<folder>language</folder>
 		</files>
-
-		<languages folder="admin">
-			<language tag="de-DE">language/de-DE/de-DE.com_events.ini</language>
-			<language tag="de-DE">language/de-DE/de-DE.com_events.sys.ini</language>
-		</languages>
 	</administration>
 </extension>
