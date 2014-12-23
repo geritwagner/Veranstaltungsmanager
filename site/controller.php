@@ -18,7 +18,7 @@ jimport('joomla.application.component.controller');
 * @category   Veranstaltungsmanager
 * @package    Site
 */
-class EventsController extends JController {
+class EventsController extends JControllerLegacy {
 	/**
 	* Anzeige der Listenansicht der Einträge
 	*

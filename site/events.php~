@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controller');
 
 // Controllerinstanz mit Präfix Events laden
-$controller = JControllerLegacy::getInstance('Events');
+$controller = JController::getInstance('Events');
 
 // Ausführen der Benutzeranfrage
 $controller->execute(JFactory::getApplication()->input->get('task','','CMD'));

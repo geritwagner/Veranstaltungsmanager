@@ -1,9 +1,9 @@
 <?php
 /**
-* Haupt-Controller der Events-Komponente
+* Haupt-Controller des Veranstaltungsmanagers (Frontend)
 *
 * @category   Veranstaltungsmanager
-* @package    Admin
+* @package    Site
 */
 
 // Direkten Zugriff verhindern
@@ -13,14 +13,14 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controller');
 
 /**
-* Haupt-Controller der Events-Komponente
+* Haupt-Controller des Veranstaltungsmanagers (Frontend)
 *
 * @category   Veranstaltungsmanager
-* @package    Admin
+* @package    Site
 */
-class EventsController extends JControllerLegacy {
+class EventsController extends JController {
 	/**
-	* display zeigt Listenansicht der Einträge
+	* Anzeige der Listenansicht der Einträge
 	*
 	* @return void
 	*/
@@ -32,8 +32,5 @@ class EventsController extends JControllerLegacy {
 		
 		// Parent-Methode aufrufen
 		parent::display($cachable);
-		
-		// Submenü laden
-		EventsHelper::addSubmenu('events');
 	}
 }

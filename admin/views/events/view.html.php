@@ -20,7 +20,7 @@ jimport('joomla.application.component.view');
 * @package    Admin
 * @subpackage View
 */
-class EventsViewEvents extends JView {
+class EventsViewEvents extends JViewLegacy {
 	/**
 	*  Ausführung und Anzeige des Template-Skripts
 	*
