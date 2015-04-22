@@ -27,28 +27,40 @@ class EventsViewEvents extends JViewLegacy {
 	* @return void
 	*/
 	function display($tpl = null) {
-		// Daten vom Events-Model laden
-		$this->items = $this->get('Items');
-		
-		// Pagination laden
-		$this->pagination = $this->get('Pagination');
-		
+		$user                    = JFactory::getUser();
+		$model                   = $this->getmodel('events');
+		$this->items		     = $this->get('Items');
+
+		$this->pagination	     	= $this->get('Pagination');
+		$this->state		     	= $this->get('State');
+		$this->user			     	= JFactory::getUser();
+		$this->model				= $this->getmodel();
+
+		$state 						= $this->get('State');
+		$orderDirn					= $state->get('filter_order_Dir');
+		$orderCol					= $state->get('filter_order');
+		$this->sortColumn 			= $state->get('list.ordering');
+
+		$this->assignRef('orderCol', $orderCol);
+		$this->assignRef('orderDirn', $orderDirn);
+
 		// Toolbar hinzufügen
 		$this->addToolBar();
-		
+
+
 		// Template anzeigen
 		parent::display($tpl);
-		
+
 		// Auf Fehler prüfen und ausgeben.
 		if(count($errors = $this->get('Errors'))) {
 			JError::raiseError(500, implode('<br />', $errors));
 			return false;
 		}
-		
+
 		// Setzen einiger Dokumenten-Details (z.B. JavaScript, Titel)
 		$this->setDocument();
 	}
-	
+
 	/**
 	* Hinzufügen der Toolbar
 	*
@@ -57,10 +69,10 @@ class EventsViewEvents extends JViewLegacy {
 	protected function addToolBar() {
 		// Objekt zum Überprüfen der Berechtigungen für ein Element
 		$canDo = EventsHelper::getActions();
-		
+
 		// Setze Titel der Toolbar
 		JToolBarHelper::title(JText::_('COM_EVENTS_MANAGER_EVENTS'), 'events');
-		
+
 		// Setze abhängig von Zugriffsrechten des Benutzers die Buttons
 		if($canDo->get('core.create')) {
 			JToolBarHelper::addNew('event.add', 'JTOOLBAR_NEW');
@@ -76,7 +88,7 @@ class EventsViewEvents extends JViewLegacy {
 			JToolBarHelper::preferences('com_events');
 		}
 	}
-	
+
 	/**
 	* Methode zum Setzen der Dokumenteneinstellungen
 	*
@@ -85,5 +97,12 @@ class EventsViewEvents extends JViewLegacy {
 	protected function setDocument() {
 		// Hole aktuelles Dokument und setze Titel
 		JFactory::getDocument()->setTitle(JText::_('COM_EVENTS_ADMINISTRATION'));
+	}
+	protected function getSortFields()
+	{
+		return array(
+			'a.id' => JText::_('JGRID_HEADING_ID'),
+			'a.ordering' => JText::_('JGRID_HEADING_ORDERING')
+		);
 	}
 }

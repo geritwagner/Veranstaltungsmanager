@@ -53,7 +53,7 @@ class EventsModelEvents extends JModelList {
 	}
 
 	// Quick Fix: SQL-Limit (0,50) umgehen
-	protected function populateState()
+	protected function populateState($ordering = NULL, $direction = NULL)
 	{
 		$this->setState('list.limit', 2000);
 	}

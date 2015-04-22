@@ -24,7 +24,7 @@ class EventsController extends JControllerLegacy {
 	*
 	* @return void
 	*/
-	function display($cachable = false)	{
+	function display($cachable = false, $urlparams = array())	{
 		$input =& JFactory::getApplication()->input;
 		
 		// Standard-View setzen, falls nicht in der Request übergeben

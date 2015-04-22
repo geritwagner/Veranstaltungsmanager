@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_EVENTS_EVENTS" option="COM_EVENTS_EVENTS">
+		<help key = "COM_EVENTS_EVENTS" />
+		<message>
+			<![CDATA[COM_CONTENT_CATEGORY_VIEW_BLOG_DESC]]>
+		</message>
+	</layout>
+</metadata>

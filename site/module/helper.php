@@ -26,7 +26,7 @@ class modEventsHelper {
 	 *
 	 * @return stdClass[] Array aus Event-Objekten
 	 */
-	public function getEvents() {
+	public static function getEvents() {
 		// Datenbank-Onjekt holen
 		$db = JFactory::getDBO();		
 		

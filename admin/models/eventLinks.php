@@ -56,7 +56,7 @@ class EventsModelEventLinks extends JModelList {
 	*
 	* @return stdClass[] Ein Object-Array mit allen Links eines Events
 	*/	
-	public function getItems($id_events) {
+	public function getItemsd($id_events) {
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
 		$query->select('*');
