@@ -62,7 +62,7 @@ class EventsModelEvents extends JModelList {
 			$db ->setQuery($query);
 
 			$eventsAfterToday = $db->loadResult();
-
+//echo $this->getPagination()->limit;
 			// Setze aktuelle Seite auf das mit dem momentanen Datum
 			$currentPage = ceil($eventsAfterToday/$this->getPagination()->limit);
 
@@ -97,7 +97,7 @@ class EventsModelEvents extends JModelList {
 
 	    $this->setState('filter_order', $filter_order);
 	    $this->setState('filter_order_Dir', $filter_order_Dir);
-		parent::populateState('a.id', 'DESC');
+		parent::populateState('a.Datum_von', 'DESC');
 	}
 
 	/**
@@ -153,6 +153,8 @@ class EventsModelEvents extends JModelList {
 			$orderCol 	= $this->state->get('list.ordering', 'a.id');
 			$orderDirn 	= $this->state->get('list.direction', 'desc');
 		}
+
+//		$query->where('a.Datum_von >= CURDATE()');
 
 		$query->order($db->escape($orderCol . ' ' . $orderDirn));
 

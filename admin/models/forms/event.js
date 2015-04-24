@@ -15,17 +15,18 @@ window.addEvent('load', function(){
 	// Überprüfung anhand des onchange-Events, ob eine Änderung der Felder Ort oder NewsTelegramm vorliegt.
 	$('jform_Ort').addEvent('change', checkOrtUndMeisterschaft);
 	$('jform_Meisterschaft').addEvent('change', checkOrtUndMeisterschaft);
-	
+
 	// Je nach Zustand sollen die Felder NewsTelegramm (vor und nach) x Tage angezeigt werden
 	$('jform_NewsTelegramm').addEvent('change', toggleNewsTelegramm);
-	
+	//document.getElementById("jform_NewsTelegramm").addEventListener("change", toggleNewsTelegramm);
+
 	// Lasse initial den Zustand herstellen
 	toggleNewsTelegramm();
 
 	// Überprüfung anhand des onchange-Events, ob eine Änderung des Startdatums vorliegt
 	$('jform_Datum_von').addEvent('change', checkDatumVon);
 	document.addEvent('mousemove', checkDatumVon);
-	
+
 	// Setze beim ersten focus die onchange (Meisterschaft und Enddatum)-Events außer Kraft
 	$('jform_NewsTelegramm').addEvent('focus', function() { neverFocusedNewsTelegramm = false; });
 	$('jform_Datum_bis').addEvent('focus', function() { neverFocusedDatumBis = false; });
@@ -52,11 +53,11 @@ function checkDatumVon() {
 function toggleNewsTelegramm() {
 	// Negierten Checkbox-Status speichern
 	var notChecked = !$('jform_NewsTelegramm').checked;
-	
+
 	// Deaktiviere Felder falls Checkbox NewsTelegramm nicht markiert ist
 	$('jform_NewsTel_preDays').disabled = notChecked;
 	$('jform_NewsTel_postDays').disabled = notChecked;
-	
+
 	// Setze hidden-Feld zur Übertragung des Checkbox-Statuses auf den aktuellen Status
 	$('NewsTelegramm_hidden').value = !notChecked?'1':'0';
 	$('NewsTelegramm_checkbox').checked = !notChecked;
@@ -70,6 +71,6 @@ function checkOrtUndMeisterschaft() {
 	// Wenn neue Veranstaltung und Newstelegramm noch nie einen Fokus hatte und es sich um eine neue Veranstaltung handelt (keine Editierung)
 	if(neverFocusedNewsTelegramm && window.location.search.indexOf('id=') == -1)
 		$('jform_NewsTelegramm').checked = ($('jform_Ort').value.toLowerCase().indexOf('regensburg') != -1 || $('jform_Meisterschaft').value != '');
-	
+
 	toggleNewsTelegramm();
 }
